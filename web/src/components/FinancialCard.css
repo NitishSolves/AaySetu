@@ -1,0 +1,310 @@
+/* FinancialCard Styles */
+
+.financial-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.financial-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+}
+
+/* Variants */
+.financial-card--default {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.financial-card--minimal {
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  box-shadow: none;
+}
+
+.financial-card--minimal:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.financial-card--highlighted {
+  background: linear-gradient(135deg, #fef3c7 0%, #fef08a 100%);
+  border-color: #fcd34d;
+  box-shadow: 0 4px 12px rgba(252, 211, 77, 0.2);
+}
+
+/* Sizes */
+.financial-card--sm {
+  padding: 1rem;
+}
+
+.financial-card--lg {
+  padding: 2rem;
+}
+
+/* Status Styling */
+.financial-card--healthy {
+  border-left: 4px solid #10b981;
+}
+
+.financial-card--warning {
+  background: linear-gradient(135deg, #fef3c7 0%, #fef08a 100%);
+  border-left: 4px solid #f59e0b;
+}
+
+.financial-card--danger {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-left: 4px solid #ef4444;
+}
+
+.financial-card--neutral {
+  border-left: 4px solid #6b7280;
+}
+
+/* Icon Section */
+.financial-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.icon-emoji {
+  font-size: 1.75rem;
+  display: inline-block;
+  min-width: 2rem;
+}
+
+/* Header */
+.financial-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.financial-card__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.financial-card__subtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* Amount Section */
+.financial-card__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.amount-currency {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.amount-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.financial-card--sm .amount-value {
+  font-size: 1.5rem;
+}
+
+.financial-card--lg .amount-value {
+  font-size: 2.5rem;
+}
+
+/* Status-specific amount colors */
+.financial-card--healthy .amount-value {
+  color: #10b981;
+}
+
+.financial-card--warning .amount-value {
+  color: #f59e0b;
+}
+
+.financial-card--danger .amount-value {
+  color: #ef4444;
+}
+
+/* Trend Indicator */
+.financial-card__trend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: #f3f4f6;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.trend-up {
+  color: #10b981;
+  background: #d1fae5;
+}
+
+.trend-down {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+.trend-icon {
+  font-size: 1rem;
+}
+
+.trend-value {
+  font-size: 0.875rem;
+}
+
+/* Description */
+.financial-card__description {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* Badge */
+.financial-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.status-healthy {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.status-warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Loading State */
+.financial-card.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 6px;
+  animation: shimmer 2s infinite;
+}
+
+.skeleton-title {
+  height: 0.875rem;
+  width: 60%;
+  margin-bottom: 0.75rem;
+}
+
+.skeleton-amount {
+  height: 2rem;
+  width: 40%;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background: #e5e7eb;
+  }
+  50% {
+    background: #f3f4f6;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Error State */
+.financial-card.error {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 1px solid #fca5a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.error-message {
+  margin: 0;
+  color: #991b1b;
+  font-size: 0.875rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .financial-card {
+    padding: 1.25rem;
+  }
+
+  .financial-card--lg {
+    padding: 1.5rem;
+  }
+
+  .amount-value {
+    font-size: 1.75rem;
+  }
+
+  .financial-card__title {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .financial-card {
+    padding: 1rem;
+  }
+
+  .amount-value {
+    font-size: 1.5rem;
+  }
+
+  .amount-currency {
+    font-size: 0.875rem;
+  }
+}

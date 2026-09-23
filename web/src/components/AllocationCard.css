@@ -1,0 +1,388 @@
+/* AllocationCard Styles */
+
+.allocation-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.allocation-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.allocation-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.allocation-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Allocation Items Container */
+.allocation-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Individual Allocation Item */
+.allocation-item {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.allocation-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Color variants for allocation items */
+.allocation-item--green {
+  border-left: 4px solid #10b981;
+}
+
+.allocation-item--green:hover {
+  background: #ecfdf5;
+}
+
+.allocation-item--blue {
+  border-left: 4px solid #3b82f6;
+}
+
+.allocation-item--blue:hover {
+  background: #eff6ff;
+}
+
+.allocation-item--purple {
+  border-left: 4px solid #a855f7;
+}
+
+.allocation-item--purple:hover {
+  background: #faf5ff;
+}
+
+/* Item Header */
+.allocation-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.allocation-item__title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.allocation-item__icon {
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  margin-top: 0.125rem;
+}
+
+.allocation-item__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.allocation-item__name {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.allocation-item__description {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Item Amount */
+.allocation-item__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.allocation-currency {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.allocation-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.allocation-item--green .allocation-value {
+  color: #10b981;
+}
+
+.allocation-item--blue .allocation-value {
+  color: #3b82f6;
+}
+
+.allocation-item--purple .allocation-value {
+  color: #a855f7;
+}
+
+/* Progress Bar */
+.allocation-item__progress {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar--green {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.progress-bar--blue {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+.progress-bar--purple {
+  background: linear-gradient(90deg, #a855f7 0%, #9333ea 100%);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+
+/* Percentage */
+.allocation-item__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.allocation-percentage {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.625rem;
+  border-radius: 4px;
+}
+
+/* Tips Section */
+.allocation-tips {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.tip-icon {
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  flex-shrink: 0;
+}
+
+.tip-text {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.tip-text strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Summary Section */
+.allocation-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #f1fdf5 100%);
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.summary-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.summary-value {
+  color: #111827;
+  font-weight: 700;
+}
+
+.summary-row--warning {
+  background: #fef3c7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin: 0 -1rem -1rem -1rem;
+}
+
+.summary-row--warning .summary-label {
+  color: #b45309;
+}
+
+.summary-row--warning .summary-value {
+  color: #b45309;
+}
+
+/* Loading State */
+.allocation-card.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 6px;
+  animation: shimmer 2s infinite;
+}
+
+.skeleton-title {
+  height: 1.125rem;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.skeleton-item {
+  height: 4rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background: #e5e7eb;
+  }
+  50% {
+    background: #f3f4f6;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Error State */
+.allocation-card.error {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 1px solid #fca5a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.error-message {
+  margin: 0;
+  color: #991b1b;
+  font-size: 0.875rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .allocation-card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .allocation-item__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .allocation-item__amount {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .allocation-tips {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .allocation-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .allocation-item {
+    padding: 0.875rem;
+  }
+
+  .allocation-title {
+    font-size: 1rem;
+  }
+
+  .allocation-value {
+    font-size: 1.25rem;
+  }
+
+  .allocation-item__icon {
+    font-size: 1.25rem;
+  }
+}
