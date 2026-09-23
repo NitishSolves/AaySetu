@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArthSetu — Micro-Investment & Savings Platform for Gig Workers</title>
+  <meta name="description" content="ArthSetu helps gig workers turn unpredictable daily income into smarter savings and micro-investments — without risking money needed for essential expenses." />
+  <meta name="theme-color" content="#2563EB" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="brand-section" id="brandLogoBtn" style="cursor: pointer;">
+        <div class="brand-logo-badge" aria-hidden="true">🌉</div>
+        <div class="brand-title-wrap">
+          <h1>
+            ArthSetu
+            <span class="version-pill">PLATFORM</span>
+          </h1>
+          <p class="brand-subtitle">Income-Adaptive Micro-Investment & Savings for Gig Workers</p>
+        </div>
+      </div>
+
+      <nav class="nav-actions">
+        <!-- User Profile Pill in Navbar -->
+        <div id="userProfileMenuWrap" class="user-profile-menu-wrap" style="display: none;">
+          <button id="userProfileBtn" class="user-profile-btn" aria-haspopup="true" aria-expanded="false">
+            <div class="user-avatar-circle" id="userAvatarIcon">🛵</div>
+            <div class="user-meta-info">
+              <span id="navUserName" class="user-name-label">Rahul Sharma</span>
+              <span id="navUserOccupation" class="user-occ-label">Delivery Partner</span>
+            </div>
+            <span style="font-size: 11px; color: var(--text-muted); margin-left: 2px;">▼</span>
+          </button>
+
+          <!-- Profile Dropdown Menu -->
+          <div id="userDropdownMenu" class="user-dropdown-menu">
+            <button id="editProfileMenuBtn" class="dropdown-item-btn">
+              <span>✏️</span> Edit Profile & Target
+            </button>
+            <button id="switchProfileMenuBtn" class="dropdown-item-btn">
+              <span>🔄</span> Switch Account
+            </button>
+            <div class="dropdown-divider"></div>
+            <button id="logoutMenuBtn" class="dropdown-item-btn" style="color: var(--expense);">
+              <span>🚪</span> Sign Out
+            </button>
+          </div>
+        </div>
+
+        <button id="themeToggleBtn" class="btn-icon" aria-label="Toggle dark/light theme" title="Switch Theme">🌙</button>
+        <button id="exportCsvBtn" class="btn btn-outline" title="Export Financial Data to CSV">📥 Export CSV</button>
+        <button id="quickAddIncomeBtn" class="btn btn-income">+ Add Today's Income</button>
+        <button id="quickAddExpenseBtn" class="btn btn-expense">− Add Expense</button>
+      </nav>
+    </header>
+
+    <!-- App Navigation Tabs Bar (Visible when logged in) -->
+    <nav id="mainNavTabsBar" class="nav-tabs-bar" style="display: none;">
+      <button class="nav-tab-btn active" data-view="dashboard">📊 Dashboard</button>
+      <button class="nav-tab-btn" data-view="invest">📈 Micro-Investments</button>
+      <button class="nav-tab-btn" data-view="finances">💼 Finances & Ledger</button>
+      <button class="nav-tab-btn" data-view="goals">🎯 Goals & Emergency</button>
+      <button class="nav-tab-btn" data-view="simulate">⚡ What-If Simulator</button>
+      <button class="nav-tab-btn" data-view="insights">💡 Insights</button>
+      <button class="nav-tab-btn" data-view="copilot">🤖 AI Copilot</button>
+    </nav>
+
+    <!-- ================= 1. LANDING PAGE VIEW ================= -->
+    <section id="landingView" class="view-section">
+      <div class="landing-hero">
+        <span class="badge-tag tag-green" style="font-size: 13px; padding: 6px 14px; margin-bottom: 16px;">
+          🛵 Built Specifically for India's Gig Workers
+        </span>
+        <h1>Your income changes every day.<br/><span style="color: var(--primary);">Your financial plan should too.</span></h1>
+        <p class="landing-subtitle">
+          ArthSetu helps food delivery partners, cab drivers, and freelancers turn unpredictable daily income into smarter savings and micro-investments — <strong>without ever risking money needed for essential expenses</strong>.
+        </p>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <button id="landingCtaBtn" class="btn btn-primary" style="padding: 16px 32px; font-size: 16px; border-radius: 12px;">
+            🚀 Build My Adaptive Plan
+          </button>
+          <button id="landingDemoBtn" class="btn btn-outline" style="padding: 16px 28px; font-size: 16px; border-radius: 12px;">
+            ⚡ Quick Demo Mode
+          </button>
+        </div>
+
+        <!-- Visual Core Transformation Waterfall Diagram -->
+        <div class="waterfall-card" style="margin-top: 40px; text-align: left;">
+          <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 6px;">Core Financial Flow: Protecting Essential Safety First</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 18px;">
+            How ArthSetu processes today's shift income before recommending savings or micro-investments:
+          </p>
+
+          <div class="waterfall-flow">
+            <div class="waterfall-step step-income">
+              <div class="waterfall-label"><span>💰</span> Today's Gross Shift Income</div>
+              <div class="waterfall-val">₹1,500</div>
+            </div>
+            <div class="waterfall-arrow">↓ minus essential expenses (Rent, Food, Fuel, EMI, Data)</div>
+            <div class="waterfall-step step-essential">
+              <div class="waterfall-label"><span>🛡️</span> Essential Living & Work Expenses</div>
+              <div class="waterfall-val" style="color: var(--expense);">-₹650</div>
+            </div>
+            <div class="waterfall-arrow">↓ equals disposable remaining money</div>
+            <div class="waterfall-step step-remaining">
+              <div class="waterfall-label"><span>✨</span> Disposable Remaining Money</div>
+              <div class="waterfall-val" style="color: var(--primary);">₹850</div>
+            </div>
+            <div class="waterfall-arrow">↓ Analyzed for Volatility & Emergency Reserve</div>
+            <div class="waterfall-step step-safe">
+              <div class="waterfall-label"><span>🎯</span> Safe-to-Allocate Amount</div>
+              <div class="waterfall-val" style="color: #8B5CF6;">₹500</div>
+            </div>
+          </div>
+
+          <div class="split-grid">
+            <div class="split-card">
+              <div class="split-card-title">🛡️ Emergency Reserve</div>
+              <div class="split-card-val" style="color: var(--primary);">₹200</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Rebuilding 3-mo buffer</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">🎯 Goal Savings</div>
+              <div class="split-card-val" style="color: var(--income);">₹150</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Vehicle repair & laptop</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">📈 Micro-Investment</div>
+              <div class="split-card-val" style="color: #0284C7;">₹100</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Adaptive daily allocation</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">💵 Flexible Cash</div>
+              <div class="split-card-val" style="color: var(--text-secondary);">₹50</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Immediate liquidity</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gig vs Traditional Comparison Table -->
+        <div style="margin-top: 40px; text-align: left;">
+          <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 12px;">Why Traditional Financial Apps Fail Gig Workers</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Traditional Salary App</th>
+                <th style="color: var(--primary);">ArthSetu Gig Platform</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Income Assumption</strong></td>
+                <td>Fixed monthly salary</td>
+                <td style="color: var(--income); font-weight: 700;">Volatile daily/weekly shift income</td>
+              </tr>
+              <tr>
+                <td><strong>Investment Model</strong></td>
+                <td>Fixed monthly SIP (fails on low days)</td>
+                <td style="color: var(--income); font-weight: 700;">Income-adaptive micro-investment</td>
+              </tr>
+              <tr>
+                <td><strong>Safety Rule</strong></td>
+                <td>Invests fixed amount regardless of expenses</td>
+                <td style="color: var(--income); font-weight: 700;">Essential expenses & safety protected first</td>
+              </tr>
+              <tr>
+                <td><strong>AI Explainability</strong></td>
+                <td>Generic chatbot tips</td>
+                <td style="color: var(--income); font-weight: 700;">Calculates math first, AI explains exact numbers</td>
+              </tr>
+              <tr>
+                <td><strong>Scenario Simulation</strong></td>
+                <td>Static calculators</td>
+                <td style="color: var(--income); font-weight: 700;">Real-time What-If simulator for shocks & spikes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. AUTH / ONBOARDING VIEW ================= -->
+    <section id="authView" class="auth-view-wrapper" style="display: none;">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-icon-badge">🌉</div>
+          <h2 class="auth-title">Welcome to ArthSetu</h2>
+          <p class="auth-subtitle">Income-adaptive micro-investment & financial protection for gig workers</p>
+        </div>
+
+        <!-- Step 1: Profile Selection -->
+        <div id="authContainer">
+          <div class="form-group">
+            <label class="form-label" for="authFullName">Your Full Name</label>
+            <input type="text" id="authFullName" class="form-control" value="Rahul Sharma" required />
+          </div>
+
+          <div class="calc-input-row" style="margin-top: 0; margin-bottom: 16px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="authPhone">Mobile Number (UPI/WhatsApp)</label>
+              <input type="tel" id="authPhone" class="form-control" value="+91 98765 43210" required />
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="authCity">City / Zone</label>
+              <input type="text" id="authCity" class="form-control" value="Bengaluru" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Primary Gig Occupation</label>
+            <select id="authOccSelect" class="form-control">
+              <option value="delivery" selected>🛵 Food & Grocery Delivery Partner (Swiggy, Zomato, Zepto)</option>
+              <option value="freelancer">💻 Freelancer / Digital Specialist (Tech, Web, Design)</option>
+              <option value="driver">🚗 Cab & Auto Ride Driver (Uber, Ola, Rapido)</option>
+              <option value="services">🛠️ Home & Technical Services Pro (Urban Company)</option>
+              <option value="logistics">📦 Logistics & Express Courier (Porter, Delhivery)</option>
+            </select>
+          </div>
+
+          <button type="button" id="btnCompleteAuth" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 15px; margin-top: 6px;">
+            🚀 Save Account & Open Platform
+          </button>
+        </div>
+
+        <!-- Quick Demo Profiles -->
+        <div class="demo-logins-box">
+          <div class="demo-logins-title">⚡ Instant Demo Sign-In:</div>
+          <div class="demo-buttons-row">
+            <button type="button" class="btn-demo-quick" id="demoRahulBtn">
+              <span>🛵</span> Rahul (Delivery Partner)
+            </button>
+            <button type="button" class="btn-demo-quick" id="demoPoojaBtn">
+              <span>💻</span> Pooja (Tech Freelancer)
+            </button>
+            <button type="button" class="btn-demo-quick" id="demoHarpreetBtn">
+              <span>🚗</span> Harpreet (Cab Driver)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. MAIN DASHBOARD VIEW ================= -->
+    <div id="dashboardView" style="display: none;">
+      <main>
+        <!-- Daily Goal & Profile Banner -->
+        <section class="daily-goal-banner" aria-label="Daily Goal Progress">
+          <div class="goal-info-left">
+            <div class="goal-icon-badge" id="bannerOccIcon">🛵</div>
+            <div>
+              <div class="goal-title">
+                <span id="bannerGreeting">Good day, Rahul!</span>
+              </div>
+              <div class="goal-desc" id="bannerOccSubtitle">Delivery Partner • Daily Target: ₹2,000/day</div>
+            </div>
+          </div>
+
+          <div class="goal-progress-wrap">
+            <div class="goal-progress-numbers">
+              <span>Shift Progress: <strong id="goalCurrentLabel" style="color: #38BDF8;">₹1,500 (75%)</strong></span>
+              <span>Target: <strong id="goalTargetLabel">₹2,000</strong></span>
+            </div>
+            <div class="progress-track">
+              <div id="goalProgressBar" class="progress-bar-fill" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button id="quickIncomeBtn" class="btn btn-income" style="font-size: 13px;">
+              + Log Today's Income
+            </button>
+          </div>
+        </section>
+
+        <!-- SECTION 1 — TODAY'S FINANCIAL WATERFALL -->
+        <section class="waterfall-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div>
+              <h2 style="font-size: 18px; font-weight: 800;">Section 1 — Today's Financial Journey</h2>
+              <p style="font-size: 13px; color: var(--text-secondary);">Rule: Remaining money is evaluated strictly after subtracting essential expenses</p>
+            </div>
+            <span class="badge-tag tag-green">Ground Truth Calculations</span>
+          </div>
+
+          <div class="waterfall-flow">
+            <div class="waterfall-step step-income">
+              <div class="waterfall-label"><span>💰</span> Today's Income</div>
+              <div id="dashTodayIncomeVal" class="waterfall-val">₹1,500</div>
+            </div>
+            <div class="waterfall-arrow">↓ minus essential expenses (Rent, Food, Fuel, EMI, Data)</div>
+            <div class="waterfall-step step-essential">
+              <div class="waterfall-label"><span>🛡️</span> Essential Living & Work Expenses</div>
+              <div id="dashEssentialVal" class="waterfall-val" style="color: var(--expense);">-₹650</div>
+            </div>
+            <div class="waterfall-arrow">↓ equals disposable remaining money</div>
+            <div class="waterfall-step step-remaining">
+              <div class="waterfall-label"><span>✨</span> Remaining Disposable Money</div>
+              <div id="dashRemainingVal" class="waterfall-val" style="color: var(--primary);">₹850</div>
+            </div>
+            <div class="waterfall-arrow">↓ analyzed for volatility & safety</div>
+            <div class="waterfall-step step-safe">
+              <div class="waterfall-label"><span>🎯</span> Safe to Allocate</div>
+              <div id="dashSafeToAllocateVal" class="waterfall-val" style="color: #8B5CF6;">₹500</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2 — YOUR MONEY TODAY (SMART SPLIT) -->
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Section 2 — Your Money Today (Smart Allocation)</h2>
+              <p class="panel-subtitle">Deterministic split of your safe ₹500 surplus across key priorities</p>
+            </div>
+            <button id="navToInvestBtn" class="btn btn-outline" style="font-size: 12.5px;">View Micro-Investments ➔</button>
+          </div>
+
+          <div class="split-grid">
+            <div class="split-card">
+              <div class="split-card-title">🛡️ Emergency Reserve</div>
+              <div id="dashSplitEmergencyVal" class="split-card-val" style="color: var(--primary);">₹200</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Protecting against bike breakdown</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">🎯 Goal Savings</div>
+              <div id="dashSplitGoalVal" class="split-card-val" style="color: var(--income);">₹150</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Work laptop & repair buffer</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">📈 Micro-Investment</div>
+              <div id="dashSplitInvestVal" class="split-card-val" style="color: #0284C7;">₹100</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Adaptive daily allocation</div>
+            </div>
+            <div class="split-card">
+              <div class="split-card-title">💵 Flexible Cash</div>
+              <div id="dashSplitBufferVal" class="split-card-val" style="color: var(--text-secondary);">₹50</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Immediate liquidity buffer</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3 — FINANCIAL PULSE & INDICATORS -->
+        <section class="metrics-grid" style="margin-bottom: 24px;" aria-label="Financial Pulse">
+          <article class="metric-card">
+            <div class="card-top-row">
+              <span class="metric-label">Income Volatility</span>
+              <span class="metric-icon-bubble">📊</span>
+            </div>
+            <div id="dashVolatilityScoreVal" class="metric-value" style="font-size: 22px;">Moderate (20%)</div>
+            <div class="metric-sub">Average: ₹1,450/day across platforms</div>
+          </article>
+
+          <article class="metric-card">
+            <div class="card-top-row">
+              <span class="metric-label">Emergency Runway</span>
+              <span class="metric-icon-bubble">🛡️</span>
+            </div>
+            <div id="dashRunwayDaysVal" class="metric-value" style="font-size: 22px; color: var(--primary);">18 Days</div>
+            <div class="metric-sub">Reserve: ₹8,500 / Target: ₹20,000</div>
+          </article>
+
+          <article class="metric-card">
+            <div class="card-top-row">
+              <span class="metric-label">Expense Burden</span>
+              <span class="metric-icon-bubble">📉</span>
+            </div>
+            <div id="dashExpenseBurdenVal" class="metric-value" style="font-size: 22px; color: var(--expense);">43%</div>
+            <div class="metric-sub">Essential ratio of gross income</div>
+          </article>
+
+          <article class="metric-card">
+            <div class="card-top-row">
+              <span class="metric-label">Total Micro-Invested</span>
+              <span class="metric-icon-bubble">📈</span>
+            </div>
+            <div id="dashTotalInvestedVal" class="metric-value" style="font-size: 22px; color: var(--income);">₹2,450</div>
+            <div class="metric-sub">Adaptive contributions to date</div>
+          </article>
+        </section>
+
+        <!-- SECTION 4 — WHY ARTHSETU MADE THIS PLAN (AI EXPLANATION) -->
+        <section class="card-panel" style="margin-bottom: 24px; border-left: 6px solid var(--primary);">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Section 4 — Why ArthSetu Made This Plan</h2>
+              <p class="panel-subtitle">Grounded AI explanation based strictly on your exact calculated numbers</p>
+            </div>
+            <button id="copilotAskBtn" class="btn btn-outline" style="font-size: 12.5px;">Ask AI Copilot 🤖</button>
+          </div>
+
+          <div id="dashAiExplanationBox" style="font-size: 15px; line-height: 1.6; color: var(--text-primary); background: var(--bg-surface-alt); padding: 18px; border-radius: var(--radius-md);">
+            Analyzing financial state...
+          </div>
+        </section>
+
+        <!-- SECTION 5 — RECENT ACTIVITY & DECISION HISTORY -->
+        <section class="ledger-panel" aria-label="Decision History & Activity">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Section 5 — Financial Decision History</h2>
+              <p class="panel-subtitle">Audited record of why recommendations adjusted when your income or expenses shifted</p>
+            </div>
+          </div>
+
+          <div id="dashDecisionHistoryList" style="display: flex; flex-direction: column; gap: 12px; margin-top: 14px;">
+            <!-- Rendered dynamically from data.js decision history -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 4. MICRO-INVESTMENTS VIEW (/invest) ================= -->
+    <div id="investView" style="display: none;">
+      <main>
+        <div class="invest-hero-card">
+          <div>
+            <span class="badge-tag" style="background: rgba(56, 189, 248, 0.2); color: #38BDF8; font-size: 12px;">FIRST-CLASS FEATURE</span>
+            <h2 style="font-size: 24px; font-weight: 800; margin-top: 6px;">How Much Can I Safely Invest Today?</h2>
+            <p style="font-size: 14px; opacity: 0.85; margin-top: 4px;">Evaluated after essential expenses, emergency buffer status, and income volatility.</p>
+          </div>
+          <div>
+            <div style="font-size: 12px; opacity: 0.8; text-transform: uppercase;">Investable Today</div>
+            <div id="investHeroVal" class="invest-hero-val">₹100</div>
+          </div>
+        </div>
+
+        <!-- Guardrail Banner (If Active) -->
+        <div id="investGuardrailBanner" class="guardrail-banner" style="display: none;">
+          <div style="font-size: 24px;">🛡️</div>
+          <div>
+            <strong style="font-size: 14px;">Safety Guardrail Active</strong>
+            <p id="investGuardrailReason" style="font-size: 12.5px; margin-top: 2px;">Investment temporarily set to ₹0 because emergency reserve is below safety target.</p>
+          </div>
+        </div>
+
+        <!-- Micro-Investment Modes -->
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Select Micro-Investment Mode</h2>
+              <p class="panel-subtitle">Choose how ArthSetu handles your daily investable surplus</p>
+            </div>
+          </div>
+
+          <div class="mode-selector-grid">
+            <div class="mode-card selected" data-mode="adaptive">
+              <div style="font-size: 24px;">⚡</div>
+              <h3 style="font-size: 16px; font-weight: 800; margin: 8px 0 4px 0;">Adaptive Mode (Recommended)</h3>
+              <p style="font-size: 12.5px; color: var(--text-secondary);">Scales investment up on high earning days; reduces or pauses investment on low days.</p>
+            </div>
+
+            <div class="mode-card" data-mode="daily">
+              <div style="font-size: 24px;">📅</div>
+              <h3 style="font-size: 16px; font-weight: 800; margin: 8px 0 4px 0;">Fixed Daily Micro-Invest</h3>
+              <p style="font-size: 12.5px; color: var(--text-secondary);">Allocates a fixed amount (e.g. ₹50/day) whenever safe surplus permits.</p>
+            </div>
+
+            <div class="mode-card" data-mode="percentage">
+              <div style="font-size: 24px;">📊</div>
+              <h3 style="font-size: 16px; font-weight: 800; margin: 8px 0 4px 0;">Percentage of Surplus Mode</h3>
+              <p style="font-size: 12.5px; color: var(--text-secondary);">Invests a fixed percentage (e.g. 15%) of your remaining safe-to-allocate cash.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- "Why Did My Investment Change?" Comparison Card -->
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">"Why Did My Investment Change Today?"</h2>
+              <p class="panel-subtitle">Compare yesterday vs today's financial allocation factors</p>
+            </div>
+          </div>
+
+          <div id="investComparisonBox" style="font-size: 14px; line-height: 1.6; background: var(--bg-surface-alt); padding: 18px; border-radius: var(--radius-md);">
+            Loading comparison...
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 5. FINANCES & LEDGER VIEW (/finances) ================= -->
+    <div id="financesView" style="display: none;">
+      <main>
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Quick Record Earnings & Work Expenses</h2>
+              <p class="panel-subtitle">Log shift payouts or petrol/repair bills to instantly recalculate your safe surplus</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <button id="btnFinAddIncome" class="btn btn-income" style="flex: 1; padding: 14px;">+ Log Today's Shift Earnings</button>
+            <button id="btnFinAddExpense" class="btn btn-expense" style="flex: 1; padding: 14px;">− Log Essential Work Expense</button>
+          </div>
+        </section>
+
+        <!-- Transaction Ledger Panel -->
+        <section class="ledger-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">📋 Detailed Financial Ledger</h2>
+              <p class="panel-subtitle">Shift payouts, petrol refuel slips, bike maintenance receipts, and rent contributions</p>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="tx-table">
+              <thead>
+                <tr>
+                  <th>Title / Source</th>
+                  <th>Category</th>
+                  <th>Essential?</th>
+                  <th>Flow</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="txTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 6. GOALS & EMERGENCY VIEW (/goals, /emergency) ================= -->
+    <div id="goalsView" style="display: none;">
+      <main>
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">🛡️ Emergency Reserve & Financial Goals</h2>
+              <p class="panel-subtitle">The allocation engine automatically routes surplus to underfunded targets</p>
+            </div>
+          </div>
+
+          <div id="goalsListGrid" class="split-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 7. WHAT-IF SIMULATOR VIEW (/simulate) ================= -->
+    <div id="simulateView" style="display: none;">
+      <main>
+        <section class="card-panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">⚡ Real-Time What-If Financial Simulator</h2>
+              <p class="panel-subtitle">Test financial shocks, high-earning days, or bike repairs to see instant plan recalculations</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button class="btn btn-outline sim-preset-btn" data-preset="shock">📉 Income Shock (Earn ₹500)</button>
+            <button class="btn btn-outline sim-preset-btn" data-preset="strong">📈 High-Earning Day (Earn ₹2,200)</button>
+            <button class="btn btn-outline sim-preset-btn" data-preset="repair">🔧 Bike Repair Shock (₹6,000)</button>
+            <button class="btn btn-outline sim-preset-btn" data-preset="reset">🔄 Reset to Current State</button>
+          </div>
+
+          <div class="split-grid">
+            <div class="split-card" style="border-left: 6px solid var(--text-muted);">
+              <h3 style="font-size: 14px; font-weight: 800;">Current Actual State</h3>
+              <div style="margin-top: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 6px;">
+                <div>Today's Income: <strong id="simCurrentIncome">₹1,500</strong></div>
+                <div>Essential Expenses: <strong id="simCurrentExpense">₹650</strong></div>
+                <div>Remaining Cash: <strong id="simCurrentRemaining">₹850</strong></div>
+                <div>Micro-Investment: <strong id="simCurrentInvest">₹100</strong></div>
+              </div>
+            </div>
+
+            <div class="split-card" style="border-left: 6px solid var(--primary); background: var(--primary-light);">
+              <h3 style="font-size: 14px; font-weight: 800; color: var(--primary);">Simulated Outcome</h3>
+              <div style="margin-top: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 6px;">
+                <div>Simulated Income: <strong id="simSimulatedIncome">₹1,500</strong></div>
+                <div>Simulated Expenses: <strong id="simSimulatedExpense">₹650</strong></div>
+                <div>Simulated Remaining: <strong id="simSimulatedRemaining" style="color: var(--primary);">₹850</strong></div>
+                <div>Simulated Investment: <strong id="simSimulatedInvest" style="color: #0284C7;">₹100</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="simExplanationBox" style="margin-top: 18px; font-size: 14px; padding: 16px; background: var(--bg-surface-alt); border-radius: var(--radius-md);">
+            Select a scenario button above to simulate how the ArthSetu engine protects your finances.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 8. INSIGHTS VIEW (/insights) ================= -->
+    <div id="insightsView" style="display: none;">
+      <main>
+        <section class="card-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">💡 Shift Analytics & Income Insights</h2>
+              <p class="panel-subtitle">Pattern analysis across your work shifts</p>
+            </div>
+          </div>
+          <div style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);">
+            <p>• <strong>Income Volatility:</strong> Your daily income fluctuates by ~20% across weekday vs weekend shifts.</p>
+            <p style="margin-top: 8px;">• <strong>Expense Ratio:</strong> 43% of your gross earnings are essential work/living expenses.</p>
+            <p style="margin-top: 8px;">• <strong>Safety Consistency:</strong> Emergency reserve covers 18 days of essential expenses.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ================= 9. AI COPILOT VIEW (/copilot) ================= -->
+    <div id="copilotView" style="display: none;">
+      <main>
+        <section class="card-panel" style="max-width: 800px; margin: 0 auto;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">🤖 Grounded AI Financial Copilot</h2>
+              <p class="panel-subtitle">Ask questions about your adaptive plan — answers are strictly calculated from your exact state</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+            <button class="btn btn-outline copilot-prompt-btn" style="font-size: 12px;">Why can I invest ₹100 today?</button>
+            <button class="btn btn-outline copilot-prompt-btn" style="font-size: 12px;">What if I earn ₹500 tomorrow?</button>
+            <button class="btn btn-outline copilot-prompt-btn" style="font-size: 12px;">Why is emergency fund prioritized?</button>
+          </div>
+
+          <div id="copilotChatBox" style="min-height: 200px; background: var(--bg-surface-alt); padding: 18px; border-radius: var(--radius-md); font-size: 14.5px; line-height: 1.6;">
+            Hello Rahul! I'm your ArthSetu AI Copilot. Ask me anything about your remaining cash, emergency buffer, or recommended micro-investments today.
+          </div>
+        </section>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <button class="mobile-nav-btn active" data-view="dashboard">
+      <span>📊</span> Home
+    </button>
+    <button class="mobile-nav-btn" data-view="invest">
+      <span>📈</span> Invest
+    </button>
+    <button class="mobile-nav-btn" data-view="finances">
+      <span>💼</span> Finances
+    </button>
+    <button class="mobile-nav-btn" data-view="simulate">
+      <span>⚡</span> Simulator
+    </button>
+    <button class="mobile-nav-btn" data-view="copilot">
+      <span>🤖</span> Copilot
+    </button>
+  </nav>
+
+  <!-- Modal Dialog for Adding Earnings / Expenses -->
+  <div id="addModalBackdrop" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-head">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span id="modalTypeBadge" class="badge-tag tag-green">+ INFLOW</span>
+          <h3 id="modalHeadline" class="modal-headline">Log Shift Earnings</h3>
+        </div>
+        <button id="closeModalBtn" class="btn-icon" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Amount (₹)</label>
+        <div class="amount-input-shell">
+          <span class="currency-sym">₹</span>
+          <input type="number" id="modalAmountInput" class="amount-input-control" placeholder="0.00" autofocus />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label id="modalCatLabel" class="form-label">Category / Source</label>
+        <select id="modalCatSelect" class="form-control">
+          <option value="Swiggy">Swiggy Delivery</option>
+          <option value="Zomato">Zomato Delivery</option>
+          <option value="Uber">Uber Rides</option>
+          <option value="Zepto">Zepto Grocery</option>
+          <option value="Freelancing">Freelance Work</option>
+          <option value="Fuel & Petrol">Fuel & Petrol (Essential)</option>
+          <option value="Food & Chai on Shift">Food & Chai on Shift (Essential)</option>
+          <option value="Rent & EMI Contribution">Rent & EMI Contribution (Essential)</option>
+          <option value="Mobile Data & Phone Bill">Mobile Data & Phone Bill (Essential)</option>
+        </select>
+      </div>
+
+      <div id="modalEssentialWrap" class="form-group" style="display: none;">
+        <label style="display: flex; align-items: center; gap: 8px; font-weight: 700; cursor: pointer;">
+          <input type="checkbox" id="modalEssentialCheckbox" checked />
+          <span>Mark as Essential Living/Work Expense (Deducted first from gross income)</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Title / Details (Optional)</label>
+        <input type="text" id="modalTitleInput" class="form-control" placeholder="e.g. Swiggy Peak Shift, Petrol Refuel" />
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="cancelModalBtn" class="btn btn-outline" style="flex:1;">Cancel</button>
+        <button type="button" id="saveModalBtn" class="btn btn-income" style="flex:2;">Save Record</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toastNotice" class="toast-notice" role="alert">
+    Notification message
+  </div>
+
+  <!-- Application Scripts (ES Modules) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
